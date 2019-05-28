@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 
 import tkinter as tk
-import picamera
 
 from tkinter import messagebox as msgbox
 from time import sleep
