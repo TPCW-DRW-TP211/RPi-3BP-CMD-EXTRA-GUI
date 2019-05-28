@@ -27,15 +27,15 @@ def btn2_clicked():
 
                 top = tk.Tk()
 
-top.title("终端命令菜单")
+top.title("Menu")
 
  
 
-btn1 = tk.Button(top, text = "全球定位系统", command = btn1_clicked)
+btn1 = tk.Button(top, text = "GPS", command = btn1_clicked)
 
 btn1.pack(fill = tk.X)
 
-btn2 = tk.Button(top, text = "拍摄", command = btn2_clicked)
+btn2 = tk.Button(top, text = "Picture", command = btn2_clicked)
 
 btn2.pack(fill = tk.X)
 
