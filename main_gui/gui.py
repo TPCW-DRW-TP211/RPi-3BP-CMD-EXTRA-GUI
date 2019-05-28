@@ -1,73 +1,42 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 import tkinter as tk
+import picamera
 
 from tkinter import messagebox as msgbox
-
- 
+from time import sleep
 
 def btn1_clicked():
 
-                msgbox.showinfo("Info", "Showinfo test.")
+                cgps -s
 
 def btn2_clicked():
 
-                msgbox.showwarning("Warning", "Showwarning test.")
+                camera = picamera.PiCamera()
+                camera.capture('image.jpg')
+ 
+                camera.start_preview()
+                camera.vflip = True
+                camera.hflip = True
+                camera.brightness = 60
+ 
+                camera.start_recording('video.h264')
+                sleep(5)
+                camera.stop_recording()
 
-def btn3_clicked():
+                top = tk.Tk()
 
-                msgbox.showerror("Error", "Showerror test.")               
-
-def btn4_clicked():
-
-                msgbox.askquestion("Question", "Askquestion test.")
-
-def btn5_clicked():
-
-                msgbox.askokcancel("OkCancel", "Askokcancel test.")
-
-def btn6_clicked():
-
-                msgbox.askyesno("YesNo", "Askyesno test.")               
-
-def btn7_clicked():
-
-                msgbox.askretrycancel("Retry", "Askretrycancel test.")
-
-               
-
-top = tk.Tk()
-
-top.title("MsgBox Test")
+top.title("终端命令菜单")
 
  
 
-btn1 = tk.Button(top, text = "showinfo", command = btn1_clicked)
+btn1 = tk.Button(top, text = "全球定位系统", command = btn1_clicked)
 
 btn1.pack(fill = tk.X)
 
-btn2 = tk.Button(top, text = "showwarning", command = btn2_clicked)
+btn2 = tk.Button(top, text = "拍摄", command = btn2_clicked)
 
 btn2.pack(fill = tk.X)
-
-btn3 = tk.Button(top, text = "showerror", command = btn3_clicked)
-
-btn3.pack(fill = tk.X)
-
-btn4 = tk.Button(top, text = "askquestion", command = btn4_clicked)
-
-btn4.pack(fill = tk.X)
-
-btn5 = tk.Button(top, text = "askokcancel", command = btn5_clicked)
-
-btn5.pack(fill = tk.X)
-
-btn6 = tk.Button(top, text = "askyesno", command = btn6_clicked)
-
-btn6.pack(fill = tk.X)
-
-btn7 = tk.Button(top, text = "askretrycancel", command = btn7_clicked)
-
-btn7.pack(fill = tk.X)
-
- 
 
 top.mainloop()
